@@ -1,0 +1,62 @@
+<base href="/" />
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <h2>Welcome Irmak!</h2>
+
+    <p> <b>My JavaScript program</b> is being <b>executed</b> by your computer.</p>
+
+    <p id="demo"></p>
+
+    <script>
+			console.log(Boolean(6 > 2)); //true
+			let m = 0;
+			console.log(Boolean(m)); //false
+			let k = 1;
+			console.log(Boolean(k)); //true
+			let i = -0;
+			console.log(Boolean(i)); //false
+			let n = "";
+			console.log(Boolean(n)); //false
+			let melis;
+			console.log(Boolean(melis)); //false
+			let melo = null;
+			console.log(Boolean(melo)); //false
+			let bool = false;
+			console.log(Boolean(bool)); //false
+			console.log(true && false); //false
+			console.log(true && true); //true
+			console.log(true || false); //true
+			console.log(true || true); //true
+			console.log(false && true); //false
+			console.log(false && false); //false
+			console.log(false || true); //true
+			console.log(false || false); //false
+			let a = 1;
+			let b = 1;
+			let c = a && b;
+			let d = 0;
+			console.log(c); //1
+			console.log(a && d); //0
+			console.log(b && d); //0
+  	        console.log(a || b); //1
+  	        console.log(a || d); //1
+  	        console.log(b || d); //1
+  	        let myArray = [0, 3, "CS 315" , "homework"];
+  	        let myNumber = 0;
+  	        while (myNumber < 4 && myArray[myNumber] != "homework") {
+  		        console.log(myArray[myNumber]);
+  		        myNumber = myNumber + 1;
+  	        }
+  	        let myFather = false && functionName(); //function will not be called and executed because first operand is false
+  	        console.log(myFather);
+  	        let myMother = true || functionName(); //function will not be called and executed again because the first operand is true
+  	        console.log(myMother);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<base href="/" />
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <h2>Welcome to my JavaScript example!</h2>
+
+    <p> <b>My JavaScript program</b> is being <b>executed</b> by your computer.</p>
+
+    <p id="demo"></p>
+
+    <script>
+        const names = ["Melis", "Cagan", "Turkey"];
+        console.log(names[4]); //this does not give an error but it says "undefined" because names array has only 3 times, therefore the 4th item is not defined
+        //myArr[8]; //since myArr is not yet defined, this line gives an error
+        const myArr = [];
+        myArr[0] = 1;
+        myArr[1] = 2;
+        myArr[2] = 2;
+        console.log(myArr[0]);
+        //multidimensional array
+        const myArray = [[9, 8, 7], [6, 5, 4], [3, 2, 1]];
+        console.log(myArray[0][1]);
+        //jagged array
+        let mySecondArr = [[3, 2], [1, 4, 5], [6, 7, 8, 9]];
+        let total = 0;
+        let average = 0.0;
+        for (let row = 0; row < mySecondArr.length; ++row) {
+            for (let col = 0; col < mySecondArr[row].length; ++col) {
+                total += mySecondArr[row][col];
+            }
+            average = total / mySecondArr[row].length;
+            console.log("Student " + parseInt(row + 1) + " average: " + average.toFixed(2));
+            total = 0;
+            average = 0.0;
+        }
+
+        let myFruits = [
+          {
+            "color": "orange",
+            "type": "tangerine",
+            "number": 1
+          },
+          {
+            "color": "green",
+            "type": "apple",
+            "number": 1
+          },
+        ]
+        
+        const trialArr = [1, 2, 3, 4, 5];
+        console.log(trialArr.slice(1));
+        console.log(trialArr.slice(2));
+        let x = 100 + 50;
+        console.log(x);
+        let y = 20 - 2;
+        console.log(y);
+        let z = 2 * 2;
+        console.log(z);
+        let m = 10 / 5;
+        console.log(m);
+        let n = 10 % 8;
+        console.log(n);
+        ++m;
+        console.log(m);
+        --n;
+        console.log(n);
+        let a = 1;
+        let b = 1;
+        let c = 2;
+        console.log(a == b); //true
+        console.log(a != b); //false
+        console.log(a === '1'); //false
+        console.log(c > a); //true
+        console.log(a >= b); //true
+        console.log(c <= a); //false
+        console.log(c > a) && (c > b); //true
+        console.log(a == b) || (a > b); //true
+        console.log(!a); //false
+        let i = 2;
+        i += 5;
+        console.log(i);
+        i -= 4;
+        console.log(i);
+        i *= 9;
+        console.log(i);
+        let k = 10;
+        k /= 10;
+        console.log(k);
+        k %= 2;
+        console.log(k);
+        let yourAge = 21;
+        console.log((yourAge <= 21) ? "Too young" : "Too old");
+
+    </script>
+
+</body>
+
+</html>

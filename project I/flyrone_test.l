@@ -1,0 +1,106 @@
+print print
+return_statement return
+if if
+else else
+new_line \n
+left_par "("
+right_par ")"
+single_quote "'"
+comma ","
+dot "."
+space " "
+colon ":"
+semicolon ";"
+left_brace "{"
+right_brace "}"
+comment "//"
+digit [0-9]
+pos_digit [1-9]
+sign [+-]
+assign_op "="
+int_type "int"
+string_type "string"
+bool_type "bool"
+double_type "double"
+type {double_type}|{int_type}|{string_type}|{bool_type}
+true "true"
+false "false"
+input "input"
+while "while"
+for "for"
+equal "=="
+not_equal "!="
+greater_equal ">="
+less_equal "<="
+greater ">"
+less "<"
+or "||"
+and "&&"
+double [+-]?{digit}*(\.){digit}+
+int [+-]?({digit})+ 
+read_heading_function "READ_HEADING";
+read_altitude_function "READ_ALTITUDE";
+read_temperature_function "READ_TEMPERATURE";
+go_vertical_function "GO_VERTICAL";
+go_up_function "GO_UP";
+go_down_function "GO_DOWN";
+go_forward_function "GO_FORWARD";
+go_backward_function "GO_BACKWARD";
+stop_horizontally_function "STOP_HORIZONTALLY";
+stop_turn_left_function "STOP_TURN_LEFT";
+stop_turn_right_function "STOP_TURN_RIGHT";
+nozzle_turn_on_function "TURN_ON_NOZZLE";
+nozzle_turn_off_function "TURN_OFF_NOZZLE";
+wifi_function "CONNECT_TO_BASE_COMPUTER_THROUGH_WIFI";
+identifier [A-Za-z][A-Za-z0-9]*
+string \"([^\\\"]|\\\"|\\\n|\\\\)*\"
+%%
+{print}           printf("PRINT");
+{return_statement} printf("RETURN");
+{if}              printf("IF");
+{else}            printf("ELSE");
+{left_par}        printf("LP");
+{right_par}       printf("RP");
+{comma}           printf("COMMA");
+{dot}             printf("DOT");
+{colon}           printf("COLON");
+{comment}         printf("COMMENT_SIGN");
+{assign_op}       printf("ASSIGNMENT_OP");
+{left_brace}      printf("LEFT_BRACE");
+{right_brace}     printf("RIGHT_BRACE");
+{true}            printf("TRUE");
+{false}           printf("FALSE");
+{while}           printf("WHILE");
+{for}             printf("FOR");
+{equal}           printf("EE");
+{not_equal}       printf("NE");
+{greater_equal}   printf("GTE");
+{less_equal}      printf("LTE");
+{greater}         printf("GT");
+{less}            printf("LT");
+{or}              printf("OR");
+{and}             printf("AND");
+{double} 		  printf("DOUBLE");
+{string} 		  printf("STRING");
+{int}             printf("INTEGER");
+{int_type}        printf("INT_TYPE");
+{string_type}     printf("STRING_TYPE");
+{bool_type}       printf("BOOL_TYPE");
+{double_type}     printf("DOUBLE_TYPE");
+{read_heading_function} printf("READ_HEADING_FUNCTION");
+{read_altitude_function} printf("READ_ALTITUDE_FUNCTION");
+{read_temperature_function} printf("READ_TEMPERATURE_FUNCTION");
+{move_function} printf("MOVE_FUNCTION");
+{nozzle_function} printf("TURN_ON_OR_OFF_NOZZLE");
+{wifi_function} printf("CONNECT_TO_BASE_COMPUTER");
+{identifier}      printf("IDENTIFIER");
+{space}           printf(" ");
+.                 ;
+%%
+int yywrap(void) { 
+    return 1; 
+}
+int main(void) {
+    yylex();
+    return 0;
+}

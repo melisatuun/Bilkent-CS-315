@@ -1,0 +1,65 @@
+BEGIN_PR
+// here we assume a field with a triangular size with sides of x = 30, y = 40, 50 m 
+// the position of the drone starts at the coordinate of (0,0)
+
+// first connect to wifi
+bool success = CONNECT_TO_BASE_COMPUTER_THROUGH_WIFI();
+
+if( success == false) {
+    print ("Could not connect to wifi");
+} else {
+    print ("Connected to wifi");
+
+    // create the initials
+    int heading = 0;
+    int altitude = 0;
+    int xpos = 0;
+    int ypos = 0;
+
+
+    // elevate the drone
+    altitude = 50;
+    GO_UP( altitude);
+
+    // turn to zero degrees
+    TURN(0);
+
+    int ycur = 40;
+
+    while( xpos <= 50 ) {
+        xpos = xpos + 1;
+
+        while ( ypos <= ycur ) {
+            ypos = ypos + 1;
+            // move forward by one meter
+            GO_FORWARD(1);
+            STOP_HORIZONTALLY();
+            
+            // spray for one second
+            TURN_ON_NOZZLE();
+            WAIT(1);
+            TURN_OFF_NOZZLE();
+        }        
+        // return to origin
+        GO_BACKWARD(ycur);
+        ypos = 0;
+        ycur = ycur - 1;
+    }
+    
+    GO_DOWN( altitude );
+
+    // code ends here but below functions are called for the sake of testing
+
+    int heading = READ_HEADING();
+    int altitude = READ_ALTITUDE();
+    int temperature = READ_TEMPERATURE();
+    GO_UP(1);
+    GO_DOWN(1);
+    MOVE_LEFT(1);
+    STOP_HORIZONTALLY();
+    MOVE_RIGHT(1);
+    STOP_TURN_LEFT(1);
+    STOP_TURN_RIGHT(1);
+
+}
+END
